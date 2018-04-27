@@ -6,7 +6,7 @@
 // it provides setters and getters for accessing
 // the information in the coordinates pair
 
-public class location {
+public class Location {
     private int x; // corresponds to the #row
     private int y; // corresponds to the #column
 
@@ -15,19 +15,20 @@ public class location {
      */
 
      /**
-      * construct a new location initialized as (0, 0)
+      * construct a new Location initialized as (0, 0)
       */
-    public location() {
+    public Location() {
          this.x = 0;
          this.y = 0;
      }
 
      /**
-      * construcrt a new location initialized to (x, y)
+      * construcrt a new Location initialized to (x, y)
       * @require x >= 0 && y >=0
       */
-     public location(int x, int y) {
-
+     public Location(int x, int y) {
+         this.x = x;
+         this.y = y;
      }
 
 
@@ -56,9 +57,9 @@ public class location {
      * inside the coordinate pair
      * to thr given x
      * 
-     * @param x the new x we need to assign into this location
+     * @param x the new x we need to assign into this Location
      * @require x >= 0 note that it is user's
-     *          responsibility to ensure this location
+     *          responsibility to ensure this Location
      *          to be valid
      * @modify this
      * @effect this.x = x
@@ -72,9 +73,9 @@ public class location {
      * inside the coordinate pair
      * to the given y
      * 
-     * @param y the new y we need to assign into this location
+     * @param y the new y we need to assign into this Location
      * @require y >= 0 note thaat it is user's
-     *          responsibility to ensure this location
+     *          responsibility to ensure this Location
      *          to be valid
      * @modify this
      * @effect this.y = y
