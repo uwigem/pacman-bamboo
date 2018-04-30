@@ -15,7 +15,7 @@ void setup() {
 // draw everything needed for the user
 void draw() {
   // loop
-
+  background(2, 2);
   
 }
 
@@ -24,4 +24,23 @@ void draw() {
 void keyPressed() {
 
      
+}
+
+
+
+// restart the game
+void restart() {
+
+}
+
+// display win messsage for user
+void displayWinMes() {
+
+
+}
+
+// display lost message for user
+void displayLostMes() {
+
+
 }
