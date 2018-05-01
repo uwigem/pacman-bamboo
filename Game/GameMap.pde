@@ -25,6 +25,8 @@ public interface GameMap{
   // reset the state of this map to
   // initial state
   public void reset();
-
+  
+  // @return true if and only
+  //public boolean getState();
 
 }
