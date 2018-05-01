@@ -4,7 +4,7 @@
 // This program shall create a pacman game for
 // the user and start the game
 
-pacMap maze = new pacMap();
+GameMap maze = new pacMap();
 // shall set everything the program needs
 // to run a pacman game
 void setup() {
