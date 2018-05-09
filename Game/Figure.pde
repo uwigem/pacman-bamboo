@@ -40,7 +40,7 @@ public interface Figure {
    
    /**  get image of character
      @return display image of character */
-   public Pimage getImage();
+   //public Pimage getImage();
    
    /**  get tag of character
      @return "Ghost" or "Pacman" of character */
@@ -88,5 +88,8 @@ public interface Figure {
    /**  set timer for invincibility status
      @param time left for altered invincibility status */
    public void setTimer(Timer timer);
+   
+   /** display this figure on the map */
+   public void display();
 
 }
