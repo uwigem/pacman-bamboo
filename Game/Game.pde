@@ -4,7 +4,7 @@
 // This program shall create a pacman game for
 // the user and start the game
 
-GameMap maze = new pacMap();
+PacMap maze = new PacMap();
 // shall set everything the program needs
 // to run a pacman game
 void setup() {
@@ -15,8 +15,10 @@ void setup() {
 // draw everything needed for the user
 void draw() {
   // loop
+  if (!maze.checkWall(2, 1)) {
+    background(400, 400);
+  }
   
-  background(2, 2);
   maze.display();
 }
 

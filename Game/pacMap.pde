@@ -4,10 +4,12 @@
 // This class represents an entire board
 // of pacman game
 
-public class PacMap implements GameMap{
+public class PacMap{
   private static final int WALL = 0;
   private static final int BEAN = 1;
-  private static final int OFFSET = 100; // default size of a single bucket
+  private static final int OFFSET = 20; // default size of a single bucket
+  private static final int ROW = 12; // number of rows of our two dimensional array map
+  private static final int COL = 45; // number of columns of our two dimensional array map
   private int score; // keeping track of user's score
   
   int[][] map = {
@@ -35,8 +37,18 @@ public class PacMap implements GameMap{
   public void update() {
   }
   
+  /** check if the coordinate responding to the
+      given x, y value represent a Wall brick in our game
+      @param x the x coordinate of the map
+      @param y the y coordinatre of the map 
+      @return true if the coordinate represents a 
+              wall brick, false otherwise */
   public boolean checkWall(int x, int y) {
-    if (map[][])
+     // check if x, y is out of bound
+     if (x >= COL || y >= ROW) {
+       return false;
+     }
+     return map[y][x] == WALL;
   }
   
 
