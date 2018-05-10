@@ -6,29 +6,41 @@
 
 
 public class Pacman{
-
+   
+  private static final int OFFSET = 100; // the offset of the whole map to the left and up boarder of the screen
+  private static final int SIZE = 20; // the default size(width and length) of every element in the map in pixels
+  
   private int xCoord;
   private int yCoord;
-  private int direction;//1 = N, -1 = S, 2 = E, -2 = W
-  private PImage currentImage;//resize to 20X20
-  private PImage imageN = loadImage("pacmanN.png");
-  private PImage imageS = loadImage("pacmanS.png");
-  private PImage imageE = loadImage("pacmanE.png");
-  private PImage imageW = loadImage("pacmanW.png");
+  private int direction; // 1 = N, -1 = S, 2 = E, -2 = W
+  private PImage currentImage; // resize to 20X20
+  private PImage imageN;
+  private PImage imageS;
+  private PImage imageE;
+  private PImage imageW;
   
   /* construct a new Pacman instance
     @param x is starting x coordinate on map
-    @param y is starting y coordinate on map */
+    @param y is starting y coordinate on map
+    @param size the default length and width of pacman
+            inside the maze in pixels */
   public Pacman(int x,int y){
-    imageN.resize(20,20);
-    imageS.resize(20,20);
-    imageE.resize(20,20);
-    imageW.resize(20,20);
-    direction = 1;
+    // set up images used for representing the pacman
+    imageN = loadImage("pacmanN.png");
+    imageS = loadImage("pacmanS.png");
+    imageE = loadImage("pacmanE.png");
+    imageW = loadImage("pacmanW.png");
+    // resize the images
+    imageN.resize(SIZE, SIZE);
+    imageS.resize(SIZE, SIZE);
+    imageE.resize(SIZE, SIZE);
+    imageW.resize(SIZE, SIZE);
+    currentImage = imageS;
+    direction = -1;
     xCoord = x;
     yCoord = y;
-    currentImage = imageN;
   }
+  
   
   /* tests if the movement of Pacman is valid in reference
      to the map walls, and if it is, updates Pacman location
@@ -38,19 +50,19 @@ public class Pacman{
     int testY = yCoord;
     
     if(direction == 1){
-      testY--;
+      testY -= 1;
     }else if(direction == -1){
-      testY++;
+      testY += 1;
     }else if(direction == 2){
-      testX++;
+      testX -= 1;
     }else if(direction == -2){
-      testX--;
+      testX += 1;
     }
     
-    if(!map.checkWall()){
+    if(!map.checkWall(testX, testY)){
       xCoord = testX;
       yCoord = testY;
-    }
+    } 
   }
   
   /* changes the direction of Pacman using cardinal directions
@@ -58,16 +70,16 @@ public class Pacman{
   public void updateDirection(char keyDir){
     if(keyDir == 'w'){
       direction = 1;
-      image = imageN;
+      currentImage = imageN;
     }else if(keyDir == 's'){
       direction = -1;
-      image = imageS;
+      currentImage = imageS;
     }else if(keyDir == 'a'){
       direction = 2;
-      image = imageW;
-    }else if(keyDir == 'd'){
+      currentImage = imageW;
+    }else {
       direction = -2;
-      image = imageE;
+      currentImage = imageE;
     }  
   }
   
@@ -78,6 +90,6 @@ public class Pacman{
   
   /* draws image of Pacman */
   public void display(){
-    image(currentImage,xCoord,yCoord); 
+    image(currentImage, OFFSET  + xCoord * SIZE, OFFSET + yCoord * SIZE); 
   }
 }
