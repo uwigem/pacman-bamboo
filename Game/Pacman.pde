@@ -76,4 +76,7 @@ public class Pacman{
     return currentImage; 
   }
   
+  public void display(){
+    image(currentImage,xCoord,yCoord); 
+  }
 }

@@ -1,4 +1,4 @@
-// Michael Fang
+  // Michael Fang
 // 4/30/2018
 // Copyright 2018 UW IGEM
 // This class represents an entire board
