@@ -5,7 +5,7 @@ If there is a wall in front of the ghost, the ghost will change directions.
 @return: The ghost's new direction.
 */
 
-public class Ghost{
+public class Ghost extends pacMap {
   private int direction = random(4);
   private PImage red;
   private PImage orange;
@@ -14,13 +14,13 @@ public class Ghost{
   
   void setup(){
     size(20,20);
-    red = loadImage("redGhost.png");
-    orange = loadImage("orangeGhost.png");
-    blue = loadImage("blueGhost.jpeg");
-    pink = loadImage("pinkGhost.png");
+    redGhost = loadImage("redGhost.png");
+    orangeGhost = loadImage("orangeGhost.png");
+    blueGhost = loadImage("blueGhost.jpeg");
+    pinkGhost = loadImage("pinkGhost.png");
   }
   
-  public Action getMove(pacMap){
+  public getMove(pacMap){
     boolean update = check.Wall();
     if (update == 'TRUE'){
       direction = random(5);
@@ -30,7 +30,19 @@ public class Ghost{
     }
   }
   
-  public PImage image(){
-    return red;
+  public getImage(PImage character){
+    if (character == 'blue') {
+      return blueGhost;
+    } else if (char == 'red') {
+      return redGhost;
+    } else if( character == 'pink') {
+      return pinkGhost;
+    } else if (character == 'orange') {
+      return orangeGhost;
+    }
+  }
+  
+  public display(int x, int y) {
+    rect(x,y,30,10);
   }
 }
